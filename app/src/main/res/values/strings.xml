@@ -1,3 +1,4 @@
 <resources>
     <string name="app_name">Clip</string>
+    <string name="hello">Hello womp womp %1$s!</string>
 </resources>
