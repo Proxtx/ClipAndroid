@@ -37,7 +37,6 @@ class MainActivity : ComponentActivity() {
             ClipTheme {
                 Surface (modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
                     Main(
-                        name = "Android",
                         modifier = Modifier.padding(8.dp)
                     )
                 }
@@ -47,38 +46,9 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun Main(name: String, modifier: Modifier = Modifier) {
-    Surface (color = Color.Yellow) {
-        Column(modifier = modifier.padding(8.dp), verticalArrangement = Arrangement.Center) {
-            Text(
-                text = stringResource(R.string.hello, name),
-                fontSize = 100.sp,
-                lineHeight = 116.sp,
-                textAlign = TextAlign.Center,
-                modifier = modifier.padding(24.dp)
-            )
+fun Main(modifier: Modifier = Modifier) {
+    Surface () {
 
-            Text(
-                text = "Also $name hi",
-                fontSize = 36.sp,
-                modifier = Modifier
-                    .padding(16.dp)
-                    .align(alignment = Alignment.End)
-            )
-
-            PImg(modifier = Modifier.align(Alignment.CenterHorizontally), subtitle = "Hi")
-        }
-    }
-}
-
-@Composable
-fun PImg(modifier: Modifier = Modifier, subtitle: String = "") {
-    val image = painterResource(R.drawable.rastergrafik)
-    Box (modifier){
-        Image(painter = image, contentDescription = "PFP", contentScale = ContentScale.Crop, alpha = 0.5F)
-        Text(text = subtitle, modifier = Modifier
-            .fillMaxSize()
-            .padding(8.dp))
     }
 }
 
@@ -86,16 +56,6 @@ fun PImg(modifier: Modifier = Modifier, subtitle: String = "") {
 @Composable
 fun MainPreview() {
     ClipTheme {
-        Main("Android")
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun PImgPreview() {
-    ClipTheme {
-        PImg(
-            subtitle = "Hi"
-        )
+        Main()
     }
 }
