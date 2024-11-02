@@ -35,27 +35,8 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
         setContent {
             ClipTheme {
-                Surface (modifier = Modifier.fillMaxSize(), color = MaterialTheme.colorScheme.background) {
-                    Main(
-                        modifier = Modifier.padding(8.dp)
-                    )
-                }
+                ClipApp()
             }
         }
-    }
-}
-
-@Composable
-fun Main(modifier: Modifier = Modifier) {
-    Surface () {
-
-    }
-}
-
-@Preview(showBackground = true)
-@Composable
-fun MainPreview() {
-    ClipTheme {
-        Main()
     }
 }
