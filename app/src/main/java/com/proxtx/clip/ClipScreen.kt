@@ -2,6 +2,8 @@ package com.proxtx.clip
 
 import android.util.Log
 import androidx.annotation.StringRes
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.ArrowBack
@@ -62,6 +64,8 @@ fun ClipApp(
         )
     }) { contentPadding ->
         Log.i("HI", contentPadding.toString())
-        RecorderScreen()
+        Row(modifier = Modifier.padding(contentPadding)) {
+            RecorderScreen()
+        }
     }
 }

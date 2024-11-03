@@ -21,7 +21,7 @@ class RecorderWorker(private val ctx: Context, params: WorkerParameters): Corout
 try {
     var recorder = MediaRecorder(ctx);
     recorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION)
-    recorder.setOutputFormat(MediaRecorder.OutputFormat.OGG)
+    recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_2_TS)
     recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
     recorder.setOutputFile(File(applicationContext.filesDir.path.plus("media.ogg")))
     recorder.prepare()
