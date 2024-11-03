@@ -31,7 +31,7 @@ class AudioRecorderService: Service() {
     private val job = SupervisorJob()
     private val scope = CoroutineScope(Dispatchers.IO + job)
 
-    @RequiresApi(Build.VERSION_CODES.S)
+    @RequiresApi(Build.VERSION_CODES.O)
     override fun onStartCommand(intent: Intent?, flags: Int, startId: Int): Int {
         startForeground()
 
@@ -42,14 +42,16 @@ class AudioRecorderService: Service() {
         return START_STICKY
     }
 
-    @RequiresApi(Build.VERSION_CODES.S)
+    @RequiresApi(Build.VERSION_CODES.O)
     private suspend fun recorder () {
         try {
-            var recorder = MediaRecorder(this);
-            recorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION)
-            recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_2_TS)
-            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB)
-            recorder.setOutputFile(File(applicationContext.filesDir.path.plus("media.ogg")))
+            val recorder = MediaRecorder()
+            recorder.setAudioSource(MediaRecorder.AudioSource.MIC)
+            recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
+            recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
+            recorder.setAudioEncodingBitRate(16*44100)
+            recorder.setAudioSamplingRate(44100)
+            recorder.setOutputFile(File(applicationContext.filesDir,"media.m4a"))
             recorder.prepare()
             recorder.start()
             delay(5_000)
