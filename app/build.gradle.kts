@@ -10,7 +10,7 @@ android {
 
     defaultConfig {
         applicationId = "com.proxtx.clip"
-        minSdk = 24
+        minSdk = 26
         targetSdk = 34
         versionCode = 1
         versionName = "1.0"
@@ -91,4 +91,6 @@ dependencies {
     implementation("com.squareup.okhttp3:okhttp:4.11.0")
 
     implementation("androidx.work:work-runtime-ktx:2.8.1")
+
+    implementation("androidx.datastore:datastore-preferences:1.0.0")
 }
