@@ -3,6 +3,7 @@ package com.proxtx.clip.services
 import android.app.Service
 import android.content.Intent
 import android.content.pm.ServiceInfo
+import android.media.EncoderProfiles
 import android.media.MediaRecorder
 import android.os.Build
 import android.os.IBinder
@@ -58,11 +59,11 @@ class AudioRecorderService: Service() {
             }
             while(true) {
                 val recorder = MediaRecorder()
-                recorder.setAudioSource(MediaRecorder.AudioSource.MIC)
+                recorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION)
                 recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
                 recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-                recorder.setAudioEncodingBitRate(16 * 44100)
-                recorder.setAudioSamplingRate(44100)
+                recorder.setAudioEncodingBitRate(16 * 50000)
+                recorder.setAudioSamplingRate(50000)
                 recorder.setOutputFile(
                     File(
                         applicationContext.filesDir.path.plus("/recordings"),
