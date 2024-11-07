@@ -62,8 +62,8 @@ class AudioRecorderService: Service() {
                 recorder.setAudioSource(MediaRecorder.AudioSource.VOICE_RECOGNITION)
                 recorder.setOutputFormat(MediaRecorder.OutputFormat.MPEG_4)
                 recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AAC)
-                recorder.setAudioEncodingBitRate(16 * 50000)
-                recorder.setAudioSamplingRate(50000)
+                recorder.setAudioEncodingBitRate(16 * 44_100)
+                recorder.setAudioSamplingRate(44_100)
                 recorder.setOutputFile(
                     File(
                         applicationContext.filesDir.path.plus("/recordings"),
