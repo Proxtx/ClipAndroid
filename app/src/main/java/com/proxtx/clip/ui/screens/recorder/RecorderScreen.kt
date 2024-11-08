@@ -27,8 +27,4 @@ fun RecorderScreen (modifier: Modifier = Modifier, recorderViewModel: RecorderVi
             recorderViewModel.toggleRecorder(it)
         }
     )
-
-    Button(onClick = {recorderViewModel.resetRecorder()}) {
-        Text("Reset")
-    }
 }
