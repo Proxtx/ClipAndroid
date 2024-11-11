@@ -6,8 +6,11 @@ import android.os.Build
 import android.os.VibrationEffect
 import android.os.Vibrator
 import android.os.VibratorManager
+import android.util.Log
 import android.view.KeyEvent
 import android.view.accessibility.AccessibilityEvent
+
+const val AC_TAG = "AccessibilityService";
 
 class TriggerAccessibilityService : AccessibilityService() {
     private lateinit var vibrator: Vibrator
@@ -36,6 +39,7 @@ class TriggerAccessibilityService : AccessibilityService() {
             when (event.keyCode) {
                 KeyEvent.KEYCODE_VOLUME_UP -> {
                     vibratePhone()
+                    Log.i(AC_TAG, "Volume Up clicked")
                 }
                 KeyEvent.KEYCODE_VOLUME_DOWN -> {
 
