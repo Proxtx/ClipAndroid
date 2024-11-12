@@ -52,6 +52,8 @@ class TriggerAccessibilityService : AccessibilityService() {
 
     private fun vibratePhone() {
         // Use VibrationEffect for API 26+
+        Log.i(AC_TAG, "Vibrating Phone...")
         vibrator.vibrate(VibrationEffect.createOneShot(200, VibrationEffect.DEFAULT_AMPLITUDE))
+        Log.i(AC_TAG, "Phone vibrated...")
     }
 }
