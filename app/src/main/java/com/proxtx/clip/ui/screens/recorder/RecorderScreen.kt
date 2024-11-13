@@ -3,6 +3,7 @@ package com.proxtx.clip.ui.screens.recorder
 import android.content.Intent
 import android.os.Build
 import androidx.annotation.RequiresApi
+import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Switch
 import androidx.compose.material3.Text
@@ -12,6 +13,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.platform.LocalContext
+import androidx.compose.ui.unit.dp
 import androidx.work.WorkManager
 import com.proxtx.clip.data.ClipRepository
 import androidx.lifecycle.viewmodel.compose.viewModel
@@ -25,6 +27,7 @@ fun RecorderScreen (modifier: Modifier = Modifier, recorderViewModel: RecorderVi
         uiState.isServiceRunning,
         {
             recorderViewModel.toggleRecorder(it)
-        }
+        },
+        modifier = modifier.padding(5.dp),
     )
 }
